@@ -1,0 +1,15 @@
+{% extends 'base2.html' %}
+{% block title %}Read Post{% endblock %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
+{% block content %}
+<h2 class="text-center text-primary">JOB SEEKER FORM</h2>
+
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <span class="text-info">{{ form|crispy }}</span>
+    <center><button type="submit" class="btn btn-primary btn-rounded mb-5">Save Profile</button></center>
+</form>
+
+{% endblock content %}

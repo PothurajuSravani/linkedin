@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add necessary head content -->
+</head>
+<body>
+    <h2>Congratulations!</h2>
+    <p>
+        Dear {{ jobseeker.fullname }},
+    </p>
+    <p>
+        We are pleased to inform you that you have been hired for the position. 
+        Your application has been successful and we would like to offer you the job.
+    </p>
+    <p>
+        Please find the details of the job below:
+        <ul>
+            <li><strong>Company:</strong> {{ job_posting.company }}</li>
+            <li><strong>Position:</strong> {{ job_posting.position }}</li>
+            <!-- Add more job details here as needed -->
+        </ul>
+    </p>
+    <p>
+        If you have any questions or need further information, feel free to contact us.
+    </p>
+    <p>
+        Best regards,<br>
+        Your Company Name
+    </p>
+</body>
+</html>

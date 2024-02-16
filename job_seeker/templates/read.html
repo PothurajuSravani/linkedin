@@ -1,0 +1,35 @@
+{% extends 'base1.html' %}
+
+{% block title %}Read Post{% endblock %}
+
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+<div class="mx-auto" style="width:600px;">
+    <div class="display-6 text-primary mt-5">
+        {{ post.title }} - <i class="text-secondary">Posted On {{ post.posted_on|date:'D, d M Y' }}</i>
+    </div>
+
+    
+        <div class="my-3 text-center">
+            <a class="btn rounded-pill btn-sm btn-warning" 
+                style="text-decoration: none;" 
+                href="{% url 'update_job_posting' pk=post.id %}">
+                Update 
+            </a>
+
+          
+        </div> 
+  
+
+    <div class="mt-3 mx-auto text-primary">
+        <p style="color: rgb(59, 51, 51);"><i style="color: rgb(222, 135, 167); font-size: 20px;">Company</i>: {{ post.company }}</p>
+        <p style="color: black;"><i style="color: rgb(222, 135, 167); font-size: 20px;">Description</i>: {{ post.job_description }}</p>
+        <p style="color: black;"><i style="color: rgb(222, 135, 167); font-size: 20px;">Requirements</i>: {{ post.requirements }}</p>
+        <p style="color: black;"><i style="color: rgb(222, 135, 167); font-size: 20px;">Posted on</i>: {{ post.posted_on }}</p>
+        <p style="color: black;"><i style="color: rgb(222, 135, 167); font-size: 20px;">Location</i>: {{ post.location }}</p>
+        <p style="color: black;"><i style="color: rgb(222, 135, 167); font-size: 20px;">Views</i>: {{ post.views }}</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+ {% extends 'base2.html' %}
+
+
+<ul>
+    {% for notification in notifications %}
+        <li {% if notification.is_read %}class="read"{% endif %}>
+            {{ notification.messages }}
+            <a href="{% url 'mark_as_read' notification.id %}">Mark as Read</a>
+        </li>
+    {% endfor %}
+    </ul>

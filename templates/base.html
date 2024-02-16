@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}LinkedIn{% endblock %}</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+      .nav_left {
+          background-color: #f19159;
+          border-top-left-radius: 48px;
+          border-bottom-left-radius: 48px;
+      }
+      
+      .nav-tabs .nav-link.active {
+          background-color: transparent;
+          border-color: transparent;
+          border-top: 4px solid #fff;
+          color: #fff;
+      }
+      
+      .nav-tabs .nav-link {
+          border: none;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          margin: 0 30px 0 40px;
+      }
+      
+      .nav-tabs {
+          border-bottom: none;
+      }
+      
+      .nav-link {
+          padding: 1rem 0.5rem;
+          color: #fff;
+      }
+      
+      .nav-link:focus,
+      .nav-link:hover {
+          color: #fff;
+      }
+      
+      .search_input {
+          width:100%;
+          border-radius: 10px;
+          border: none;
+          line-height: initial;
+          padding-top: 4px;
+          padding-bottom: 4px;
+          color: #f19159;
+      }
+      
+      .search_input:focus-visible {
+          outline: none;
+      }
+      
+      input.search_input::placeholder {
+          color: #cfd2ec;
+          vertical-align: middle;
+      }
+      
+      .search_img {
+          top: 7px;
+          right: 8px;
+      }
+      
+      .navbar-toggler {
+          border: 3px solid #f19159;
+      }
+      
+      .navbar-toggler-icon {
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(35, 76, 203, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+      
+      .navbar-toggler:focus {
+          box-shadow: none;
+      }
+
+    </style>
+    
+  </head>
+  <body style="background-color: rgb(232, 219, 219);"> 
+    
+    
+
+    <nav class="navbar navbar-expand-lg py-3 ">
+      <div class="pe-lg-0 ps-lg-5 container-fluid justify-content-between">
+          <a class="navbar-brand" href="#" style="font-size: 50px;">LinkedIn
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+              <div class="nav_left d-lg-flex align-items-center">
+                  <nav>
+                      <div class="nav d-block d-lg-flex nav-tabs" id="nav-tab" role="tablist">
+                          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                              type="button" role="tab" aria-controls="home" aria-selected="true" style="color: black;"><b>Home</b></button>
+                          <button class="nav-link" id="about-tab" data-bs-toggle="tab" data-bs-target="#about"
+                              type="button" role="tab" aria-controls="about" aria-selected="false"><a href="{% url 'login_user' %}" style="text-decoration: none; color: black;"><b>Login</b></a></button>
+                             
+                              <div class="dropdown">
+                                <button class="btn tb-3 dropdown-toggle" style="margin-top:14px;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                               <b> Register</b> 
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item"  href="{% url 'job_seeker_registration' %}">job_seeker</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'company_registration' %}">company_registration</a></li>
+                                </ul>
+                            </div>    
+                         
+                          <button class="nav-link" id="courses-tab" data-bs-toggle="tab" data-bs-target="#courses"
+                              type="button" role="tab" aria-controls="courses" aria-selected="false"></button>
+                      </div>
+                  </nav>
+                  
+              </div>
+          </div>
+      </div>
+  </nav>
+    <!-- <nav class="navbar navbar-dark" style="background-color: rgb(215, 223, 223);">
+      <div class="container-fluid">
+          <div class="text-center display-6">
+              <a class="text-decoration-none text-primary" href="">LinkedIn</a>
+          </div>
+          <div class="">
+              <a class="text-decoration-none text-primary" href="">Home</a> |
+              <a class="text-decoration-none text-primary" href="{% url 'login_user' %}">login</a> |
+              <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Register
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="{% url 'job_seeker_registration' %}">job_seeker</a></li>
+                      <li><a class="dropdown-item" href="{% url 'company_registration' %}">company_registration</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </nav> -->
+
+  <h1 style="text-align: center;">Welcome to Professional Community</h1>
+  
+    <div>
+      {% include 'messages.html' %}
+        
+      <div style="min-height: 500px;">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+    
+    <footer class=" py-3 text-center bg-secondary display-5 mt-5">
+        LinkedIn Footer
+    </footer>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>

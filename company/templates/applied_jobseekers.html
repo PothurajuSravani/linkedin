@@ -1,0 +1,48 @@
+{% extends 'base1.html' %}
+{% block title %}Applied Job Seekers{% endblock %}
+{% block content %}
+
+<h1 class="text-center text-primary mb-3">Applied Job Seekers</h1>
+
+{% if applied_jobseekers %}
+    <ul>
+        {% for applicant in applied_jobseekers %}
+
+        <div class="card border-success mb-4 " >
+            <div class="card-header text-center text-uppercase text-dark ">
+                <strong>Username: {{ applicant.jobseeker.name }}</strong> 
+            </div>
+            <div class="card-body">
+                <!-- <h2><strong>Username:</strong>{{ applicant.jobseeker.name }}</h2> -->
+                <p><strong>Email:</strong> {{ applicant.jobseeker.email }}</p> 
+                <p><strong>Bio:</strong> {{ applicant.jobseeker.bio }}</p>
+                <p><strong>Skills:</strong> {{ applicant.jobseeker.skills }}</p>
+                <p><strong>Experience:</strong> {{ applicant.jobseeker.experience }}</p>
+                <p><strong>Education:</strong> {{ applicant.jobseeker.education }}</p>
+                {% if applicant.jobseeker.resume %}
+                    <p><strong>Resume:</strong> <a href="http://127.0.0.1:8000/{{ applicant.jobseeker.resume }}">View Resume</a></p>
+                {% else %}
+                    <p><strong>Resume:</strong> No resume uploaded</p>
+                {% endif %}
+                <p><strong>Date Applied:</strong> {{ applicant.application.date_applied }}</p>
+              
+            </div>
+            <div class="card-footer text-muted text-center">
+                {% if applicant.application.status == 'hired' %}
+                <button type="submit" class="btn btn-primary disabled">HIRED</button>
+                {% else %}
+                    <form action="{% url 'hire-jobseeker' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="application_id" value="{{ applicant.application.id }}">
+                        <button type="submit" class="btn btn-primary">HIRE</button>
+                    </form>
+                {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No job seekers have applied for this job posting yet.</p>
+{% endif %}
+
+{% endblock %}
